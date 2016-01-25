@@ -5,7 +5,11 @@ gem 'rails', '4.2.4'
 
 gem 'omniauth-twitter'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'sqlite3'
+
+gem 'sqlite3', group: :development
+# 本番ではpostgressを使用する
+gem 'pg', group: :production
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
