@@ -1,0 +1,57 @@
+
+
+
+
+<div class="main-body" >
+  <% @link_days.keys.sort {|a,b| b <=> a }.each do |day| %>
+  <div class="links-list" >     
+    <!-- <h3 class="day-date" >Today <small>SEPTEMBER 3RD</small></h3> -->
+      <h3 class="day-date">
+        <% if day.strftime('%e') == Date.today.strftime('%e') %>
+          <%= "Today" %> <small><%= "#{day.to_formatted_s(:month_and_day)}" %></small>
+          <% else %>
+            <% "#{day.strftime('%A')}" %> <small><%= "#{day.to_formatted_s(:month_and_day)}" %></small>
+          <% end %>
+      </h3>
+
+      <% for link in @link_days[day] %>
+    <div class="link-item" >
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+
+          <%= link_to(upvote_link_path(link), class: "upvote") do %>
+              <span class="upvote-button" >
+              <span class="glyphicon glyphicon-chevron-up" ></span>
+              </span> 
+              <span class="upvote-count" ><%= link.get_upvotes.size %></span>
+            <% end %>
+        </div>
+        <div class="col-xs-7">
+          <a class="link-item-title" href="<% link.url %>"><%= link.title %></a>
+          <span class="link-item-tagline" ><%= link.subtitle %></span>
+        </div>
+        <div class="col-xs-1">
+          <%= link_to(link.user.handle) do %>
+
+          <span class="image" ><%= image_tag link.user.image, width: "40px;", height: "40px;" %></span>
+          <% end %>
+        </div>
+
+        <div class="col-xs-2" > 
+          <%= link_to(link) do %>
+          <span class="comment-count" >
+            <span class=" glyphicon glyphicon-comment" ></span><%= link.comments.count %></span>
+          <% end %>
+        </div>
+        <!-- <div class="col-xs-1"> <span class="comment-count" >8</span> </div> -->
+       
+      </div>
+      
+    </div>
+    <% end %>
+      
+  </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,42 @@
+
+<% if comment.user %>
+<p><strong><%= comment.user.name %></strong></p>
+
+<p><%= comment.body %></p>
+
+<% end %>
+
+	<% if comment.user %>
+
+        <div class="comments-block " >
+          
+        
+            <div class="hidden-xs  col-sm-1">
+              <span class="image" ><%= image_tag comment.user.image, width: "40px;", height: "40px;" %></span>
+            </div>
+        
+            <div class="  col-xs-12  col-sm-11" >
+            <p>
+              <!-- <span class="small-bottom-padding" ><strong>Jeremy Voss</strong></span>
+              <span class="small-bottom-padding" >This looks very useful. Also, big fan of Clearbit's Company logo API.</span> -->
+              <span>
+                <small>
+
+                  <% if current_user %>
+                  <%= link_to(upvote_link_comment_path(:user_id, comment), class: "upvote") do %>
+                    <span class="glyphicon glyphicon-chevron-up" ></span>
+                    UPVOTE | <%= comment.get_upvotes.size %>
+                  <% end %>
+                  <% else %>
+
+                    <%= pluralize(comment.get_upvotes.size, 'UPVOTE', 'UPVOTES') %> 
+                  <% end %>
+
+                </small>
+              </span>
+            </p>
+            </div>
+            <div class="col-xs-12 pad-bot-big" ></div>
+        </div>
+
+    <% end %>
