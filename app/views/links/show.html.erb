@@ -11,7 +11,7 @@
                 <span><%= @link.get_upvotes.size %></span>
             <% end %>
 
-      <%= link_to "GET IT", @link.url, class: "get btn btn-primary btn-sm " %>
+      <%= link_to "サイトへ", @link.url, class: "get btn btn-primary btn-sm ", :target => "_blank" %>
 
       
     </div>
@@ -70,7 +70,7 @@
       <div class="row upvotes-show-section pad-top-big pad-bot-medium" >
         <div class="col-xs-12" >
             <p class="upvotes-header" >
-            <strong> <span class="likes-count" >12</span> Upvotes</strong>
+            <strong> <span class="likes-count" ></span> Upvotes</strong>
         </div>
 
         <div class=pad-top"col-xs-12" >
