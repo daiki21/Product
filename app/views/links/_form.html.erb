@@ -10,20 +10,23 @@
       </ul>
     </div>
   <% end %>
-
+<div class="col-sm-4">
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title, "サービス名" %><br>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :subtitle %><br>
-    <%= f.text_field :subtitle %>
+    <%= f.label :subtitle, "サービスの詳細" %><br>
+    <%= f.text_field :subtitle, class: "form-control", :rows => '4' %>
   </div>
   <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.label :url, "URL" %><br>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
+  <p>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "投稿", class: "btn btn-sm" %>
   </div>
+  </p>
+</div>
 <% end %>
