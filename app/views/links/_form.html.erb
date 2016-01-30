@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-<div class="col-sm-4">
+<div class="col-sm-6">
   <div class="field">
     <%= f.label :title, "サービス名" %><br>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :subtitle, "サービスの詳細" %><br>
-    <%= f.text_field :subtitle, class: "form-control", :rows => '4' %>
+    <%= f.text_area :subtitle, class: "form-control", :rows => '4' %>
   </div>
   <div class="field">
     <%= f.label :url, "URL" %><br>
